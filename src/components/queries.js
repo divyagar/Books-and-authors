@@ -6,6 +6,9 @@ const getBooks = gql`
         id
         name
         price
+        author{
+            name
+        }
     }
 }
 `
@@ -29,4 +32,12 @@ const getAuthors = gql`
 }
 `
 
-export { getBooks, createBook, getAuthors }
+const deleteBook = gql`
+mutation($id: Int!){
+    deleteBook(id: $id){
+        ok
+    }
+}
+`
+
+export { getBooks, createBook, getAuthors, deleteBook }
