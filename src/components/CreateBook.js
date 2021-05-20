@@ -40,7 +40,7 @@ function CreateBook() {
 			}}>
 				{
 					(addBook, { loading, error, data }) => (
-						< form className="border-2 px-10 py-5" onSubmit={e => {
+						< form className="border-2 border-gray-600 px-10 py-5" onSubmit={e => {
 							e.preventDefault()
 							addBook({
 								variables: {
@@ -59,7 +59,7 @@ function CreateBook() {
 									type="text"
 									id="name"
 									value={name}
-									className="border-black rounded-2xl outline-none border-2 w-full px-3 py-2"
+									className="border-blue-600 rounded-2xl outline-none border-2 w-full px-3 py-2"
 									onChange={(ev) => setName(ev.target.value)}
 								/>
 							</div>
@@ -72,7 +72,7 @@ function CreateBook() {
 									type="number"
 									form="price"
 									value={price}
-									className="border-black rounded-2xl outline-none border-2 w-full px-3 py-2"
+									className="border-blue-600 rounded-2xl outline-none border-2 w-full px-3 py-2"
 									onChange={(e) => setPrice(e.target.value)}
 								/>
 							</div>
@@ -83,7 +83,7 @@ function CreateBook() {
                   </label>
 								<select
 									htmlFor="author"
-									className="border-black rounded-2xl outline-none border-2 w-full px-3 py-2"
+									className="border-blue-600 rounded-2xl outline-none border-2 w-full px-3 py-2"
 									onChange={(e) => setAuthor(e.target.value)}
 								>
 									<Authors />
