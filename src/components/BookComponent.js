@@ -30,7 +30,7 @@ export const BookComponent = () => {
 						onClick={() => setDisplayBlock("first")}
 					>
 						Create a book
-          </button>
+          			</button>
 				</div>
 
 				<div className={
@@ -47,7 +47,7 @@ export const BookComponent = () => {
 						onClick={() => setDisplayBlock("second")}
 					>
 						List all books
-          </button>
+          			</button>
 				</div>
 
 				<div className={

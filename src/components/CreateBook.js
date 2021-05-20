@@ -54,7 +54,7 @@ function CreateBook() {
 							<div>
 								<label htmlFor="name" className="block text-left">
 									Name
-              </label>
+              					</label>
 								<input
 									type="text"
 									id="name"
@@ -67,7 +67,7 @@ function CreateBook() {
 							<div>
 								<label htmlFor="price" className="block text-left mt-4">
 									Price
-                  </label>
+								</label>
 								<input
 									type="number"
 									form="price"
@@ -80,11 +80,12 @@ function CreateBook() {
 							<div>
 								<label htmlFor="author" className="block text-left mt-4">
 									Author
-                  </label>
+                  				</label>
 								<select
 									htmlFor="author"
 									className="border-blue-600 rounded-2xl outline-none border-2 w-full px-3 py-2"
 									onChange={(e) => setAuthor(e.target.value)}
+									value={author}
 								>
 									<Authors />
 								</select>
@@ -100,7 +101,7 @@ function CreateBook() {
 
 							{loading && <p>Loading...</p>}
 							{error && <p>Error</p>}
-							{data && <p>Done</p>}
+							{data && window.location.reload()}
 
 						</form>
 					)
