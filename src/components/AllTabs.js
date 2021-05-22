@@ -31,7 +31,7 @@ export default function AllTabs() {
 					<Route path="/updateBook/:id/:name/:price/:author" component={UpdateBook} />
 					<Route path="/books" component={ListBooks} />
 					<Route path="/createAuthor" component={CreateAuthor} />
-					<Route path="/updateAuthor/:id/:name/:age" component={UpdateAuthor} />
+					<Route path="/updateauthor/:id/:name/:age" component={UpdateAuthor} />
 					<Route path="/authors" component={ListAuthors} />
 				</Switch>
 			</Tabs>

@@ -11,7 +11,6 @@ function ListAuthors() {
             <Query query={getAuthors}>
                 {
                     ({ loading, error, data }) => {
-
                         if (loading) return <p>Loading...</p>
                         if (error) return <p>Error while fetching data</p>
 

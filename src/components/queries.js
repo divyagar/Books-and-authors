@@ -47,6 +47,7 @@ const getAuthors = gql`
     authors{
         id
         name
+        age
     }
 }
 `
@@ -71,7 +72,7 @@ mutation($id: Int!){
 
 const updateAuthor = gql`
 mutation($id: Int!, $name: String!, $age: Int!){
-    updateBook(id: $id, name: $name, age: $age){
+    updateAuthor(id: $id, name: $name, age: $age){
         author{
             name
         }
