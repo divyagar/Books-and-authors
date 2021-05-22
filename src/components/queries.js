@@ -24,15 +24,6 @@ const createBook = gql`
     }
 `
 
-const getAuthors = gql`
-{
-    authors{
-        id
-        name
-    }
-}
-`
-
 const deleteBook = gql`
 mutation($id: Int!){
     deleteBook(id: $id){
@@ -51,4 +42,41 @@ mutation($id: Int!, $name: String!, $price: Int!, $author: Int!){
 }
 `
 
-export { getBooks, createBook, getAuthors, deleteBook, updateBook }
+const getAuthors = gql`
+{
+    authors{
+        id
+        name
+    }
+}
+`
+
+const createAuthor = gql`
+    mutation($name: String!, $age: Int!){
+        createAuthor(name: $name, age: $age){
+            author{
+                name
+            }
+        }
+    }
+`
+
+const deleteAuthor = gql`
+mutation($id: Int!){
+    deleteAuthor(id: $id){
+        ok
+    }
+}
+`
+
+const updateAuthor = gql`
+mutation($id: Int!, $name: String!, $age: Int!){
+    updateBook(id: $id, name: $name, age: $age){
+        author{
+            name
+        }
+    }
+}
+`
+
+export { getBooks, createBook, getAuthors, deleteBook, updateBook, createAuthor, deleteAuthor, updateAuthor }

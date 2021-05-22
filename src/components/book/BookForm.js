@@ -1,8 +1,9 @@
 import React from 'react'
 import { Query } from 'react-apollo'
-import { getAuthors } from './queries'
+import { Redirect } from 'react-router'
+import { getAuthors } from '../queries'
 
-function CreateBookComponent(props) {
+function BookForm(props) {
     const Authors = () => (
         <Query query={getAuthors}>
             {
@@ -26,8 +27,6 @@ function CreateBookComponent(props) {
         </Query>
     )
 
-
-    // alert("name: ", props.name, props.price, props.author)
     return (
         <div>
             < form className="border-2 border-gray-600 px-10 py-5" onSubmit={props.handleSubmit}>
@@ -35,7 +34,7 @@ function CreateBookComponent(props) {
                 <div>
                     <label htmlFor="name" className="block text-left">
                         Name
-              					</label>
+              		</label>
                     <input
                         type="text"
                         id="name"
@@ -48,7 +47,7 @@ function CreateBookComponent(props) {
                 <div>
                     <label htmlFor="price" className="block text-left mt-4">
                         Price
-								</label>
+					</label>
                     <input
                         type="number"
                         form="price"
@@ -61,7 +60,7 @@ function CreateBookComponent(props) {
                 <div>
                     <label htmlFor="author" className="block text-left mt-4">
                         Author
-                  				</label>
+       				</label>
                     <select
                         htmlFor="author"
                         className="cursor-pointer border-blue-600 rounded-2xl outline-none border-2 w-full px-3 py-2"
@@ -77,16 +76,18 @@ function CreateBookComponent(props) {
                         type="submit"
                         value="Submit"
                         className="bg-blue-600 text-white cursor-pointer mt-8 mb-3 w-full py-3 text-lg rounded-2xl"
-                    >Create</button>
+                    >
+                        Create
+                    </button>
                 </div>
 
                 {props.loading && <p>Loading...</p>}
                 {props.error && <p>Error while creating book</p>}
-                {props.data && window.location.reload()}
+                {props.data && <Redirect to="/books" />}
 
             </form>
         </div>
     )
 }
 
-export default CreateBookComponent
+export default BookForm

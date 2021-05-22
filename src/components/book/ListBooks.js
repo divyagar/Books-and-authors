@@ -1,21 +1,20 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Query, Mutation } from 'react-apollo'
-import { getBooks, deleteBook } from './queries'
+import { getBooks, deleteBook } from '../queries'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashAlt, faEdit } from '@fortawesome/free-solid-svg-icons'
-import UpdateBookComponent from './UpdateBookComponent'
+import { Link } from 'react-router-dom'
 
 function ListBooks() {
-	const [show, setShow] = useState(false)
-
 	return (
 		<div className="py-20">
 			<Query query={getBooks}>
 				{
 					({ loading, error, data }) => {
-						console.log(data)
+
 						if (loading) return <p>Loading...</p>
 						if (error) return <p>Error while fetching data</p>
+
 						return (
 							<React.Fragment>
 								{
@@ -47,17 +46,15 @@ function ListBooks() {
 														}
 													</Mutation>
 
-													<FontAwesomeIcon
-														icon={faEdit}
-														className="cursor-pointer ml-2"
-														color="blue"
-														onClick={() => setShow(true)}
-													/>
+													<Link to={`updateBook/${book.id}/${book.name}/${book.price}/${book.author.id}`}>
+														<FontAwesomeIcon
+															icon={faEdit}
+															className="cursor-pointer ml-2"
+															color="blue"
+														/>
+													</Link>
 
 												</div>
-
-
-
 												<div>
 													<b>Name </b>: {book.name}
 												</div>
@@ -68,16 +65,6 @@ function ListBooks() {
 													<b>Author</b> : {book.author.name}
 												</div>
 											</div>
-
-											{/* <div className={show ? "" : "hidden"}>
-												{alert("state: ", book.name, book.price)}
-												<UpdateBookComponent
-													name={book.name}
-													price={book.price}
-													author={book.author.id}
-													id={book.id}
-												/>
-											</div> */}
 										</div>
 
 									)

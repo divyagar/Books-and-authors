@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-import ListBooks from './ListBooks'
-import CreateBook from './CreateBook'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
@@ -24,7 +22,7 @@ export const BookComponent = () => {
 						<Link to="/createBook">
 							Create a book
 						</Link>
-          			</button>
+					</button>
 				</div>
 
 				<div>
@@ -34,7 +32,7 @@ export const BookComponent = () => {
 						<Link to="/books">
 							List all books
 						</Link>
-          			</button>
+					</button>
 				</div>
 
 			</div>

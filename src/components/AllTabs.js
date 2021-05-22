@@ -1,10 +1,14 @@
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
+import { Tab, Tabs, TabList } from 'react-tabs'
 import React from 'react'
-import { BookComponent } from './BookComponent'
+import { BookComponent } from './book/BookComponent'
 import { Link, Switch, Route } from 'react-router-dom'
-import AuthorComponent from './author/AuthorComponent'
-import CreateBook from './CreateBook'
-import ListBooks from './ListBooks'
+import { AuthorComponent } from './author/AuthorComponent'
+import CreateBook from './book/CreateBook'
+import ListBooks from './book/ListBooks'
+import UpdateBook from './book/updateBook'
+import CreateAuthor from './author/CreateAuthor'
+import UpdateAuthor from './author/UpdateAuthor'
+import ListAuthors from './author/ListAuthors'
 
 export default function AllTabs() {
 	return (
@@ -24,8 +28,11 @@ export default function AllTabs() {
 					<Route exact path="/booksManager" component={BookComponent} />
 					<Route path="/authorsManager" component={AuthorComponent} />
 					<Route path="/createBook" component={CreateBook} />
-					<Route path="/updateBook" component={CreateBook} />
+					<Route path="/updateBook/:id/:name/:price/:author" component={UpdateBook} />
 					<Route path="/books" component={ListBooks} />
+					<Route path="/createAuthor" component={CreateAuthor} />
+					<Route path="/updateAuthor/:id/:name/:age" component={UpdateAuthor} />
+					<Route path="/authors" component={ListAuthors} />
 				</Switch>
 			</Tabs>
 		</div>
