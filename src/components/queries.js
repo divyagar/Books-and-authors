@@ -7,6 +7,7 @@ const getBooks = gql`
         name
         price
         author{
+            id
             name
         }
     }
@@ -40,4 +41,14 @@ mutation($id: Int!){
 }
 `
 
-export { getBooks, createBook, getAuthors, deleteBook }
+const updateBook = gql`
+mutation($id: Int!, $name: String!, $price: Int!, $author: Int!){
+    updateBook(id: $id, name: $name, price: $price, author: $author){
+        book{
+            name
+        }
+    }
+}
+`
+
+export { getBooks, createBook, getAuthors, deleteBook, updateBook }
