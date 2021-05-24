@@ -21,7 +21,7 @@ function ListBooks() {
 									data.books.length > 0 &&
 									data.books.map(book =>
 										<div className="">
-											<div key={book.id} className="m-auto w-1/4 border-t-2 border-b-2 px-10 py-5 text-left">
+											<div key={book.id} className="m-auto sm:w-1/4 w-3/4 border-t-2 border-b-2 px-10 py-5 text-left">
 												<div>
 													<Mutation mutation={deleteBook} refetchQueries={() => {
 														return [{

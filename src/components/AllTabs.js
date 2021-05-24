@@ -1,5 +1,5 @@
 import { Tab, Tabs, TabList } from 'react-tabs'
-import React from 'react'
+import React, { useState } from 'react'
 import { BookComponent } from './book/BookComponent'
 import { Link, Switch, Route } from 'react-router-dom'
 import { AuthorComponent } from './author/AuthorComponent'
@@ -13,15 +13,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
 export default function AllTabs() {
+	const [selectedComponent, setSelectedComponent] = useState("book")
+
 	return (
 		<div>
 			<Tabs>
 				<TabList className="w-full flex-1 py-5 px-2 text-lg bg-gray-100 mb-5">
 					<Link to="/booksManager">
-						<Tab className="inline-block w-1/2 cursor-pointer">Books</Tab>
+						<Tab
+							className="inline-block w-1/2 cursor-pointer"
+						>
+							Books
+						</Tab>
 					</Link>
 					<Link to="/authorsManager">
-						<Tab className="inline-block w-1/2 cursor-pointer">Authors</Tab>
+						<Tab
+							className="inline-block w-1/2 cursor-pointer">
+							Authors
+						</Tab>
 					</Link>
 				</TabList>
 				<div className="px-10 text-left">

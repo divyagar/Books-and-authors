@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 export const AuthorComponent = () => {
     return (
         <div>
-            <div className="flex flex-col py-20 justify-center items-center" >
+            <div className="flex flex-col py-36 justify-center items-center" >
                 <div>
                     <button
                         className="border border-black px-14 py-3 mb-5 focus:outline-none"

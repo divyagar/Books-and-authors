@@ -20,7 +20,7 @@ function ListAuthors() {
                                     data.authors.length > 0 &&
                                     data.authors.map(author =>
                                         <div className="">
-                                            <div key={author.id} className="m-auto w-1/4 border-t-2 border-b-2 px-10 py-5 text-left">
+                                            <div key={author.id} className="m-auto sm:w-1/4 w-3/4 border-t-2 border-b-2 px-10 py-5 text-left">
                                                 <div>
                                                     <Mutation mutation={deleteAuthor} refetchQueries={() => {
                                                         return [{
