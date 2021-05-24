@@ -9,6 +9,8 @@ import UpdateBook from './book/updateBook'
 import CreateAuthor from './author/CreateAuthor'
 import UpdateAuthor from './author/UpdateAuthor'
 import ListAuthors from './author/ListAuthors'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
 export default function AllTabs() {
 	return (
@@ -22,6 +24,15 @@ export default function AllTabs() {
 						<Tab className="inline-block w-1/2 cursor-pointer">Authors</Tab>
 					</Link>
 				</TabList>
+				<div className="px-10 text-left">
+					<
+						FontAwesomeIcon
+						icon={faArrowLeft}
+						className="cursor-pointer"
+						onClick={() => window.history.go(-1)}
+						size="lg"
+					/>
+				</div>
 
 				<Switch>
 					<Route exact path="/" component={BookComponent} />

@@ -6,14 +6,6 @@ import { Link } from 'react-router-dom'
 export const BookComponent = () => {
 	return (
 		<div>
-			<div className="px-10 text-left">
-				<
-					FontAwesomeIcon
-					icon={faArrowLeft}
-					className="cursor-pointer"
-					size="lg"
-				/>
-			</div>
 			<div className="flex flex-col py-20 justify-center items-center" >
 				<div>
 					<button

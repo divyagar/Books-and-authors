@@ -3,7 +3,7 @@ import { Mutation, Query } from 'react-apollo'
 import { getAuthors, createBook, getBooks } from '../queries'
 import BookForm from './BookForm';
 
-function CreateBook() {
+function CreateBook(props) {
 	const [name, setName] = useState("");
 	const [price, setPrice] = useState(0);
 	const [author, setAuthor] = useState(null);
