@@ -7,9 +7,16 @@ function UpdateBook(match) {
     const [name, setName] = useState(match.match.params.name);
     const [price, setPrice] = useState(match.match.params.price);
     const [author, setAuthor] = useState(match.match.params.author);
+    const [errorLabels, setErrorLabels] = useState(null)
 
     const handleSubmit = (e, updateBook) => {
         e.preventDefault()
+
+        if (name == "" || price == 0 || author == null) {
+            setErrorLabels("Please fill all details")
+            return
+        }
+
         updateBook({
             variables: {
                 id: match.match.params.id,
@@ -33,6 +40,7 @@ function UpdateBook(match) {
                             name={name}
                             price={price}
                             author={author}
+                            errorLabels={errorLabels}
                             creating={false}
                             setName={(e) => setName(e.target.value)}
                             setPrice={(e) => setPrice(e.target.value)}

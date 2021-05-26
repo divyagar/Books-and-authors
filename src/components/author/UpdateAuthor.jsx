@@ -6,9 +6,16 @@ import { updateAuthor, getAuthors } from '../queries'
 function UpdateAuthor(match) {
     const [name, setName] = useState(match.match.params.name);
     const [age, setAge] = useState(match.match.params.age);
+    const [errorLabels, setErrorLabels] = useState(null)
 
     const handleSubmit = (e, updateAuthor) => {
         e.preventDefault()
+
+        if (name == "" || age == 0) {
+            setErrorLabels("Please fill all details")
+            return
+        }
+
         updateAuthor({
             variables: {
                 id: match.match.params.id,
@@ -30,6 +37,7 @@ function UpdateAuthor(match) {
                             handleSubmit={(e) => handleSubmit(e, updateAuthor)}
                             name={name}
                             age={age}
+                            errorLabels={errorLabels}
                             setName={(e) => setName(e.target.value)}
                             setAge={(e) => setAge(e.target.value)}
                             loading={loading}

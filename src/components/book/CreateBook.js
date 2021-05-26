@@ -7,6 +7,7 @@ function CreateBook(props) {
 	const [name, setName] = useState("");
 	const [price, setPrice] = useState(0);
 	const [author, setAuthor] = useState(null);
+	const [errorLabels, setErrorLabels] = useState(null);
 
 	const Authors = () => (
 		<Query query={getAuthors}>
@@ -32,6 +33,11 @@ function CreateBook(props) {
 	)
 	const handleSubmit = (e, createBook) => {
 		e.preventDefault()
+		if (name == "" || price == 0 || author == null) {
+			setErrorLabels("Please fill all data")
+			return
+		}
+
 		createBook({
 			variables: {
 				name: name,
@@ -55,6 +61,7 @@ function CreateBook(props) {
 								name={name}
 								price={price}
 								author={author}
+								errorLabels={errorLabels}
 								creating={true}
 								setName={(e) => setName(e.target.value)}
 								setPrice={(e) => setPrice(e.target.value)}

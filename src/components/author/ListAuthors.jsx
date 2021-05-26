@@ -1,6 +1,6 @@
 import React from 'react'
 import { Query, Mutation } from 'react-apollo'
-import { getAuthors, deleteAuthor } from '../queries'
+import { getAuthors, deleteAuthor, getBooks } from '../queries'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrashAlt, faEdit } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom'
@@ -23,9 +23,10 @@ function ListAuthors() {
                                             <div key={author.id} className="m-auto sm:w-1/4 w-3/4 border-t-2 border-b-2 px-10 py-5 text-left">
                                                 <div>
                                                     <Mutation mutation={deleteAuthor} refetchQueries={() => {
-                                                        return [{
-                                                            query: getAuthors
-                                                        }]
+                                                        return [
+                                                            { query: getAuthors },
+                                                            { query: getBooks }
+                                                        ]
                                                     }}>
                                                         {
                                                             (deleteAuthor, { loading, error, data }) => (

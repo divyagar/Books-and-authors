@@ -29,6 +29,12 @@ function BookForm(props) {
 
     return (
         <div>
+            {props.errorLabels &&
+                (<div className="text-red-900 text-lg mb-2">
+                    {props.errorLabels}
+                </div>)
+            }
+
             < form className="border-2 border-gray-600 px-10 py-5" onSubmit={props.handleSubmit}>
 
                 <div>

@@ -6,9 +6,16 @@ import AuthorForm from './AuthorForm'
 function CreateAuthor() {
     const [name, setName] = useState("");
     const [age, setAge] = useState(0);
+    const [errorLabels, setErrorLabels] = useState(null)
 
     const handleSubmit = (e, createAuthor) => {
         e.preventDefault()
+
+        if (name == "" || age == 0) {
+            setErrorLabels("Please fill all details")
+            return
+        }
+
         createAuthor({
             variables: {
                 name: name,
@@ -30,6 +37,7 @@ function CreateAuthor() {
                                 handleSubmit={(e) => handleSubmit(e, createAuthor)}
                                 name={name}
                                 age={age}
+                                errorLabels={errorLabels}
                                 setName={(e) => setName(e.target.value)}
                                 setAge={(e) => setAge(e.target.value)}
                                 loading={loading}
