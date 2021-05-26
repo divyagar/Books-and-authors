@@ -5,7 +5,7 @@ import { ApolloProvider } from 'react-apollo'
 import { BrowserRouter as Router } from 'react-router-dom'
 
 const client = new ApolloClient({
-  uri: 'http://localhost:8000/graphql/',
+  uri: 'https://books-and-authors-backend.herokuapp.com/graphql/',
 })
 
 function App() {
